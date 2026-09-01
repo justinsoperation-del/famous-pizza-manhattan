@@ -2,12 +2,23 @@
 
 import { useEffect, useRef, useState } from "react";
 import type { AnchorHTMLAttributes, MouseEvent } from "react";
+import Link from "next/link";
 import { Phone, ShoppingBag, MapPin } from "lucide-react";
 import { BUSINESS, SITE_NAV_LINKS } from "@/lib/site";
 import { trackEvent, type AnalyticsEvent } from "@/lib/analytics";
 
 /* ---------------------------------------------------------------------- */
-/* TrackedLink — a plain anchor that fires one analytics event on click.  */
+/* TrackedLink — fires one analytics event on click. Internal routes      */
+/* (hrefs starting with "/") use next/link for a real client-side         */
+/* transition; everything else (tel:, https://slice..., maps) stays a     */
+/* plain <a> since those are genuine full navigations to another origin.  */
+/*                                                                        */
+/* This distinction is the fix for the "Menu glitch": every internal link */
+/* previously rendered a plain <a>, so clicking Menu (or any nav item)    */
+/* forced a full document reload — the whole header/footer/mobile bar     */
+/* unmounted and remounted from scratch, which is what read as a visible  */
+/* layout flash, most noticeable on Menu because it has the most content  */
+/* reflowing back in (two-column sticky layout, extra food grid).         */
 /* ---------------------------------------------------------------------- */
 
 type TrackedLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
@@ -15,8 +26,12 @@ type TrackedLinkProps = AnchorHTMLAttributes<HTMLAnchorElement> & {
   eventParams?: Record<string, string>;
 };
 
+function isInternalHref(href: string | undefined): href is string {
+  return typeof href === "string" && href.startsWith("/") && !href.startsWith("//");
+}
+
 export function TrackedLink(props: TrackedLinkProps) {
-  const { event, eventParams, onClick, children, ...rest } = props;
+  const { event, eventParams, onClick, children, href, ...rest } = props;
 
   function handleClick(e: MouseEvent<HTMLAnchorElement>) {
     trackEvent(event, eventParams);
@@ -25,8 +40,16 @@ export function TrackedLink(props: TrackedLinkProps) {
     }
   }
 
+  if (isInternalHref(href)) {
+    return (
+      <Link href={href} {...rest} onClick={handleClick}>
+        {children}
+      </Link>
+    );
+  }
+
   return (
-    <a {...rest} onClick={handleClick}>
+    <a href={href} {...rest} onClick={handleClick}>
       {children}
     </a>
   );
@@ -150,13 +173,13 @@ export function MobileNav() {
             aria-label="Mobile navigation"
           >
             {SITE_NAV_LINKS.map((link) => (
-              <a
+              <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => handleLinkClick(link.event, link.label)}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </nav>
         </>

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { BUSINESS, featuredItems } from "@/lib/site";
 import { OrderButton, TrackedLink } from "@/components/site-interactions";
 import { FoodPlaceholder } from "@/components/food-placeholder";
@@ -51,10 +52,10 @@ export default function Home() {
 
         <div className="hero-visual">
           <img
-            src="https://slice-menu-assets-prod.imgix.net/11868/1611020011_ab9bbe0970?fit=crop&h=1000&w=900"
+            src="https://slice-menu-assets-prod.imgix.net/11868/1611020011_ab9bbe0970?fit=crop&h=1200&w=1200"
             alt="Fresh cheese pizza from Famous Pizza"
-            width={900}
-            height={1000}
+            width={1200}
+            height={1200}
           />
         </div>
       </section>
@@ -67,7 +68,7 @@ export default function Home() {
           </div>
           <p>
             A photo-first look at a few of Famous Pizza&rsquo;s items. See the full menu with
-            every category and price on the <a href="/menu">Menu page</a>.
+            every category and price on the <Link href="/menu">Menu page</Link>.
           </p>
         </div>
 
@@ -105,7 +106,7 @@ export default function Home() {
         <p>
           Famous Pizza is located at {BUSINESS.address}, in Midtown Manhattan near Madison Square
           Park. See the full address, directions, and live hours on the{" "}
-          <a href="/location-hours">Location &amp; Hours page</a>.
+          <Link href="/location-hours">Location &amp; Hours page</Link>.
         </p>
         <div className="hero-actions">
           <TrackedLink
@@ -116,9 +117,9 @@ export default function Home() {
           >
             Get Directions <span aria-hidden="true">↗</span>
           </TrackedLink>
-          <a className="button button-secondary" href="/location-hours">
+          <Link className="button button-secondary" href="/location-hours">
             Location &amp; Hours
-          </a>
+          </Link>
         </div>
       </section>
     </main>

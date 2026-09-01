@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./globals.css";
 import { BUSINESS, SITE_ORIGIN, SITE_NAV_LINKS, buildRestaurantJsonLd } from "@/lib/site";
 import {
@@ -58,13 +59,13 @@ export default function RootLayout(props: { children: React.ReactNode }) {
     <html lang="en">
       <body>
         <header className="site-header">
-          <a className="brand" href="/" aria-label="Famous Pizza home">
+          <Link className="brand" href="/" aria-label="Famous Pizza home">
             <span className="brand-mark">F</span>
             <span>
               <strong>FAMOUS</strong>
               <small>PIZZA · MANHATTAN</small>
             </span>
-          </a>
+          </Link>
 
           <nav aria-label="Main navigation" className="desktop-nav">
             {SITE_NAV_LINKS.map((link) => (
