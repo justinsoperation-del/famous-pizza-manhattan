@@ -17,9 +17,18 @@ export const NAV = [
   ["Menu", "/menu"],
   ["Order", "/order"],
   ["Location & Hours", "/location-hours"],
-  ["Contact", "/contact"],
-] as const;export const SITE_NAV_LINKS = NAV;
-
+  ["Contact", "/contact"],] as const;
+export const SITE_NAV_LINKS = [
+  { label: "Home", href: "/", event: "navigation_click" },
+  { label: "Menu", href: "/menu", event: "menu_view" },
+  { label: "Order", href: "/order", event: "navigation_click" },
+  {
+    label: "Location & Hours",
+    href: "/location-hours",
+    event: "navigation_click",
+  },
+  { label: "Contact", href: "/contact", event: "navigation_click" },
+] as const;
 export const MENU = {
   specials: [
     { name: "Cheese Pizza Slice Special", desc: "Current online slice special.", price: "$2.99" },
