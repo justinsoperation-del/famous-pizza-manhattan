@@ -10,7 +10,7 @@ export const SITE = {
   siteOrigin: process.env.NEXT_PUBLIC_SITE_URL || "https://famous-pizza-manhattan.vercel.app",
   heroImage: "https://slice-menu-assets-prod.imgix.net/11868/1611020027_0d62f30af6?fit=crop&h=1200&w=1200",
   rating: "4.3",
-};
+};export const BUSINESS = SITE;
 
 export const NAV = [
   ["Home", "/"],
@@ -18,7 +18,7 @@ export const NAV = [
   ["Order", "/order"],
   ["Location & Hours", "/location-hours"],
   ["Contact", "/contact"],
-] as const;
+] as const;export const SITE_NAV_LINKS = NAV;
 
 export const MENU = {
   specials: [
