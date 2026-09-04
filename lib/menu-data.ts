@@ -21,7 +21,15 @@ export type MenuItem = {
    */
   isStockPhoto?: boolean;
   featured: boolean;
-  orderUrl: string;
+  /**
+   * Verified Slice product ID for this exact item, or omitted if none has been
+   * confirmed yet. When present, every link to this item (featured card, food
+   * image, menu row, "Order on Slice" button) opens the exact product page:
+   * https://www.orderfamouspizzamenu.com/?product_id=ID
+   * When absent, links safely fall back to the main ordering page. Do not guess
+   * or invent an ID — only add one here once it's been manually verified.
+   */
+  sliceProductId?: string;
   badge?: string;
 };
 
@@ -48,7 +56,7 @@ export const menuItems: MenuItem[] = [
     imageAlt: "Cheese pizza slice (stock photo)",
     isStockPhoto: true,
     featured: true,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144531", // verified manually by the owner
   },
   {
     id: "pepperoni-pizza",
@@ -67,7 +75,7 @@ export const menuItems: MenuItem[] = [
     imageAlt: "Pepperoni pizza on a wooden tray (stock photo)",
     isStockPhoto: true,
     featured: true,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144570", // verified manually by the owner
   },
   {
     id: "hawaiian-pizza",
@@ -85,7 +93,7 @@ export const menuItems: MenuItem[] = [
     imageAlt: "Baked Hawaiian pizza with pineapple (stock photo)",
     isStockPhoto: true,
     featured: true,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144664", // verified manually by the owner
   },
   {
     id: "garlic-knots",
@@ -96,7 +104,7 @@ export const menuItems: MenuItem[] = [
     image: null, // no attractive real or stock match found — kept text-only in the Menu
     imageAlt: "Garlic knots — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144798", // verified manually by the owner
   },
   {
     id: "extra-cheese-pizza",
@@ -113,7 +121,7 @@ export const menuItems: MenuItem[] = [
       "https://slice-menu-assets-prod.imgix.net/11868/1611020036_ab9bbe0970?fit=crop&h=900&w=900&sat=8&con=6&sharp=15",
     imageAlt: "Extra cheese pizza from Famous Pizza",
     featured: true,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144577", // verified manually by the owner
   },
   {
     id: "ricotta-pizza",
@@ -124,7 +132,7 @@ export const menuItems: MenuItem[] = [
     image: null, // no usable photo — branded placeholder if ever shown, text-only in the Menu for now
     imageAlt: "Ricotta cheese pizza — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3296455", // verified manually by the owner
   },
   {
     id: "slice-special",
@@ -135,7 +143,6 @@ export const menuItems: MenuItem[] = [
     image: null,
     imageAlt: "Cheese pizza slice special — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
   },
   {
     id: "two-slices-water",
@@ -146,7 +153,6 @@ export const menuItems: MenuItem[] = [
     image: null,
     imageAlt: "Two cheese slices with water — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
   },
   {
     id: "two-slices-soda",
@@ -157,7 +163,6 @@ export const menuItems: MenuItem[] = [
     image: null,
     imageAlt: "Two cheese slices with soda — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
   },
   {
     id: "bbq-chicken-pizza",
@@ -168,7 +173,7 @@ export const menuItems: MenuItem[] = [
     image: null,
     imageAlt: "BBQ chicken pizza — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144657", // verified manually by the owner
   },
   {
     id: "chicken-broccoli-pizza",
@@ -179,7 +184,7 @@ export const menuItems: MenuItem[] = [
     image: null,
     imageAlt: "Chicken and broccoli pizza — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144660", // verified manually by the owner
   },
   {
     id: "mix-vegetables-pizza",
@@ -190,7 +195,7 @@ export const menuItems: MenuItem[] = [
     image: null,
     imageAlt: "Mixed vegetable pizza — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144661", // verified manually by the owner
   },
   {
     id: "mozzarella-sticks",
@@ -201,7 +206,7 @@ export const menuItems: MenuItem[] = [
     image: null,
     imageAlt: "Mozzarella sticks — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144799", // verified manually by the owner
   },
   {
     id: "pepperoni-roll",
@@ -212,7 +217,7 @@ export const menuItems: MenuItem[] = [
     image: null,
     imageAlt: "Pepperoni roll — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144801", // verified manually by the owner
   },
   {
     id: "chicken-roll",
@@ -223,7 +228,7 @@ export const menuItems: MenuItem[] = [
     image: null,
     imageAlt: "Chicken roll — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144809", // verified manually by the owner
   },
   {
     id: "beef-patty",
@@ -234,7 +239,7 @@ export const menuItems: MenuItem[] = [
     image: null,
     imageAlt: "Beef patty — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144811", // verified manually by the owner
   },
   {
     id: "beef-patty-cheese-pepperoni",
@@ -245,7 +250,7 @@ export const menuItems: MenuItem[] = [
     image: null,
     imageAlt: "Beef patty with cheese and pepperoni — photo pending",
     featured: false,
-    orderUrl: ORDER_URL,
+    sliceProductId: "3144817", // verified manually by the owner
   },
 ];
 
@@ -273,6 +278,18 @@ export const categoryOrder = [
   "Appetizers",
   "Rolls",
 ] as const;
+
+/**
+ * Resolves the exact Slice URL for an item — the single place that decides
+ * between a verified direct product link and the safe fallback. To add a newly
+ * verified product ID later, just set `sliceProductId` on that item above;
+ * every card/button/link using this helper updates automatically.
+ */
+export function getOrderUrl(item: MenuItem): string {
+  return item.sliceProductId
+    ? `${ORDER_URL}?product_id=${item.sliceProductId}`
+    : ORDER_URL;
+}
 
 export function getFeaturedItems(): MenuItem[] {
   return menuItems.filter((item) => item.featured);

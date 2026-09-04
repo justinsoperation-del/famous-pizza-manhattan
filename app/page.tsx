@@ -1,5 +1,5 @@
 import { business, hours, services, siteStatus } from "@/lib/site-config";
-import { getFeaturedItems, getItemsByCategory, heroImage, menuItems } from "@/lib/menu-data";
+import { getFeaturedItems, getItemsByCategory, getOrderUrl, heroImage, menuItems } from "@/lib/menu-data";
 import { DemoPlaceholder } from "@/components/DemoPlaceholder";
 import { SiteHeader } from "@/components/SiteHeader";
 import { MobileActionBar } from "@/components/MobileActionBar";
@@ -133,7 +133,7 @@ export default function Home() {
             {featured.map((item) => (
               <a
                 key={item.id}
-                href={item.orderUrl}
+                href={getOrderUrl(item)}
                 className="highlight-card"
                 data-menu-item={item.id}
               >
@@ -185,7 +185,7 @@ export default function Home() {
                 <ul>
                   {group.items.map((item) => (
                     <li key={item.id}>
-                      <a href={item.orderUrl} className="menu-row">
+                      <a href={getOrderUrl(item)} className="menu-row">
                         <span className="menu-row-name">
                           {item.name}
                           {item.badge && <span className="menu-badge">{item.badge}</span>}
