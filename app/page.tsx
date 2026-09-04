@@ -1,5 +1,5 @@
 import { business, hours, services, siteStatus } from "@/lib/site-config";
-import { getFeaturedItems, getItemsByCategory } from "@/lib/menu-data";
+import { getFeaturedItems, getItemsByCategory, heroImage } from "@/lib/menu-data";
 import { DemoPlaceholder } from "@/components/DemoPlaceholder";
 import { SiteHeader } from "@/components/SiteHeader";
 import { MobileActionBar } from "@/components/MobileActionBar";
@@ -24,11 +24,8 @@ export default function Home() {
         {/* HERO */}
         <section className="hero">
           <div className="hero-copy">
-            <p className="hero-eyebrow">East 28th Street · Manhattan</p>
             <h1>Famous Pizza</h1>
-            <p className="hero-lede">
-              New York slices, whole pies and neighborhood favorites.
-            </p>
+            <p className="hero-subline">East 28th Street, Manhattan</p>
             <div className="hero-actions">
               <TrackedLink
                 className="button button-primary"
@@ -61,10 +58,10 @@ export default function Home() {
           </div>
           <div className="hero-visual">
             <img
-              src={featured[0]?.image ?? undefined}
-              alt={featured[0]?.imageAlt ?? "Famous Pizza cheese pizza"}
-              width={900}
-              height={1000}
+              src={heroImage.src}
+              alt={heroImage.alt}
+              width={heroImage.width}
+              height={heroImage.height}
             />
           </div>
         </section>

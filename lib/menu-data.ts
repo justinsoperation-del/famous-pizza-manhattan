@@ -222,6 +222,19 @@ export const menuItems: MenuItem[] = [
   },
 ];
 
+/**
+ * Dedicated hero crop — same verified, owner's real cheese-pizza photo used for the
+ * Cheese Pizza menu item above, requested from the CDN at a wider aspect ratio so the
+ * whole pie reads clearly in the hero instead of being tightly cropped by a square
+ * source image forced into a tall frame. Not a different/new photo — same asset id.
+ */
+export const heroImage = {
+  src: "https://slice-menu-assets-prod.imgix.net/11868/1611020011_ab9bbe0970?fit=crop&w=1400&h=1050&crop=entropy",
+  alt: "Whole cheese pizza with melted mozzarella from Famous Pizza",
+  width: 1400,
+  height: 1050,
+};
+
 export const categoryOrder = [
   "Pizza",
   "Specialty Pizza",
