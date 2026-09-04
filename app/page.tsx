@@ -114,6 +114,7 @@ export default function Home() {
                 {item?.image ? (
                   <>
                     <img src={item.image} alt={`${cat.label} pizza`} loading="lazy" width={480} height={480} />
+                    {item.isStockPhoto && <span className="stock-tag">Stock photo</span>}
                     <span>{cat.label}</span>
                   </>
                 ) : (
@@ -136,7 +137,10 @@ export default function Home() {
                 data-menu-item={item.id}
               >
                 {item.image ? (
-                  <img src={item.image} alt={item.imageAlt} loading="lazy" width={720} height={560} />
+                  <div className="highlight-card-photo">
+                    <img src={item.image} alt={item.imageAlt} loading="lazy" width={720} height={560} />
+                    {item.isStockPhoto && <span className="stock-tag">Stock photo</span>}
+                  </div>
                 ) : (
                   <DemoPlaceholder label={item.name} variant="wide" />
                 )}
@@ -203,7 +207,10 @@ export default function Home() {
         {/* CINEMATIC MOMENT */}
         <section className="food-moment">
           {featured[1]?.image ? (
-            <img src={featured[1].image} alt={featured[1].imageAlt} loading="lazy" />
+            <>
+              <img src={featured[1].image} alt={featured[1].imageAlt} loading="lazy" />
+              {featured[1].isStockPhoto && <span className="stock-tag">Stock photo</span>}
+            </>
           ) : (
             <DemoPlaceholder label="Grab a slice" variant="hero" />
           )}
@@ -220,7 +227,10 @@ export default function Home() {
         <section className="order-section section" id="order">
           <div className="order-visual">
             {featured[2]?.image ? (
-              <img src={featured[2].image} alt={featured[2].imageAlt} loading="lazy" width={640} height={640} />
+              <>
+                <img src={featured[2].image} alt={featured[2].imageAlt} loading="lazy" width={640} height={640} />
+                {featured[2].isStockPhoto && <span className="stock-tag">Stock photo</span>}
+              </>
             ) : (
               <DemoPlaceholder label="Order" variant="square" />
             )}

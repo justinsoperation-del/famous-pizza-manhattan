@@ -8,12 +8,18 @@ export type MenuItem = {
   /** Verified price string, or null when unverified — render "See current price" on Slice. */
   price: string | null;
   /**
-   * Real, verified photo URL for this exact item, or null.
-   * Only set this when the photo is confirmed to depict THIS item — never borrow
-   * a neighboring item's photo to fill a gap. Null renders the branded placeholder.
+   * Photo URL for this exact item, or null. Null renders no image at all in the
+   * image sections (kept text-only) — never a giant blank placeholder tile.
    */
   image: string | null;
   imageAlt: string;
+  /**
+   * True only when `image` is a licensed stock photo standing in for a genuinely
+   * weak/missing real photo (not Famous Pizza's own food). Tagged "Stock photo"
+   * wherever it renders and must be swapped for owner-approved photography before
+   * public launch. Omit/false for the restaurant's own verified Slice photography.
+   */
+  isStockPhoto?: boolean;
   featured: boolean;
   orderUrl: string;
   badge?: string;
@@ -21,9 +27,9 @@ export type MenuItem = {
 
 const ORDER_URL = business.orderUrl;
 
-// Photos below are the restaurant's own verified Slice listing photography, carried
-// over from the current live site — each URL was already confirmed to match its
-// specific item. No stock or borrowed photography is used for real menu items.
+// Photos below are the restaurant's own verified Slice listing photography unless
+// marked isStockPhoto, carried over from the current live site — each URL was
+// already confirmed to match its specific item.
 export const menuItems: MenuItem[] = [
   {
     id: "cheese-pizza",
@@ -55,9 +61,16 @@ export const menuItems: MenuItem[] = [
     category: "Specialty Pizza",
     description: "Tomato sauce, cheese, pineapple, and bacon.",
     price: "$23.99",
-    image: null, // real photo flagged as too weak/unappetizing for display — kept text-only in the Menu until a stronger photo is available
-    imageAlt: "Hawaiian pizza — photo pending",
-    featured: false,
+    // STOCK PHOTO — the real Slice photo for this item was too weak to use. This is
+    // licensed stock photography that closely matches the dish, not Famous Pizza's
+    // own food. Free to use under the Unsplash License (unsplash.com/license).
+    // Photo by bckfwd: unsplash.com/photos/baked-hawaiian-pizza-vc7DjXSry7g
+    // Replace with owner-approved photography before public launch.
+    image:
+      "https://images.unsplash.com/photo-1562835155-a7c2a225e97d?fit=crop&w=900&h=900&q=80&auto=format",
+    imageAlt: "Baked Hawaiian pizza with pineapple (stock photo)",
+    isStockPhoto: true,
+    featured: true,
     orderUrl: ORDER_URL,
   },
   {
@@ -66,7 +79,7 @@ export const menuItems: MenuItem[] = [
     category: "Appetizers",
     description: "Baked knots with garlic, butter, parsley, and sauce.",
     price: "$4.25",
-    image: null, // real photo flagged as too weak for display — kept text-only in the Menu until a stronger photo is available
+    image: null, // no attractive real or stock match found — kept text-only in the Menu
     imageAlt: "Garlic knots — photo pending",
     featured: false,
     orderUrl: ORDER_URL,

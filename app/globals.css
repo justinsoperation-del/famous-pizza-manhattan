@@ -145,7 +145,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 /* HERO */
 .hero {
   display: grid;
-  grid-template-columns: 42% 58%;
+  grid-template-columns: 40% 60%;
   min-height: 640px;
 }
 .hero-copy { align-self: center; padding: 64px clamp(24px, 6vw, 88px); }
@@ -157,7 +157,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .hero-meta { border-top: 1px solid var(--gray-line); display: flex; flex-direction: column; font-size: 13px; gap: 8px; margin-top: 40px; padding-top: 18px; }
 .hero-meta-links { display: flex; gap: 8px; font-weight: 700; }
 .hero-meta-links a:hover { text-decoration: underline; }
-.hero-visual { aspect-ratio: 4 / 3; align-self: center; overflow: hidden; position: relative; width: 100%; }
+.hero-visual { aspect-ratio: 6 / 5; align-self: center; overflow: hidden; position: relative; width: 100%; }
 .hero-visual img { height: 100%; object-fit: cover; object-position: center 42%; width: 100%; }
 
 /* INFO STRIP */
@@ -185,14 +185,14 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 }
 
 /* SECTIONS */
-.section { margin: 0 auto; max-width: 1400px; padding: 90px clamp(24px, 6vw, 88px); }
+.section { margin: 0 auto; max-width: 1400px; padding: 76px clamp(24px, 6vw, 88px); }
 .highlights h2, .menu-intro h2, .about h2 { font-size: clamp(36px, 4.5vw, 56px); margin-bottom: 36px; }
 
 .highlights-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
 .highlight-card { background: var(--cream); border-radius: 4px; display: block; overflow: hidden; }
 .highlight-card--wide { grid-column: span 2; }
-.highlight-card img, .highlight-card .demo-placeholder { aspect-ratio: 1.3 / 1; object-fit: cover; width: 100%; }
-.highlight-card--wide img, .highlight-card--wide .demo-placeholder { aspect-ratio: 1.9 / 1; }
+.highlight-card img, .highlight-card .demo-placeholder { aspect-ratio: 1.15 / 1; object-fit: cover; width: 100%; }
+.highlight-card--wide img, .highlight-card--wide .demo-placeholder { aspect-ratio: 1.6 / 1; }
 .highlight-card-copy { display: flex; flex-direction: column; gap: 14px; padding: 20px; }
 .highlight-card-copy h3 { font-family: var(--font-body); font-size: 19px; font-weight: 700; margin: 0 0 4px; }
 .highlight-card-copy p { color: var(--gray); font-size: 14px; margin: 0; }
@@ -200,7 +200,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .order-arrow { color: var(--red); font-size: 12px; font-weight: 700; }
 
 /* MENU */
-.menu-section { background: var(--cream); border-top: 1px solid var(--gray-line); padding: 90px clamp(24px, 6vw, 88px); }
+.menu-section { background: var(--cream); border-top: 1px solid var(--gray-line); padding: 76px clamp(24px, 6vw, 88px); }
 .menu-intro { margin: 0 auto 48px; max-width: 640px; }
 .menu-intro p { color: var(--gray); font-size: 16px; line-height: 1.55; margin: 18px 0 26px; max-width: 520px; }
 .menu-categories { display: grid; gap: 40px; grid-template-columns: repeat(2, 1fr); margin: 0 auto; max-width: 1100px; }
@@ -215,7 +215,7 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .menu-footnote { color: var(--gray); font-size: 12px; margin: 44px auto 0; max-width: 1100px; }
 
 /* CINEMATIC FOOD MOMENT */
-.food-moment { min-height: 480px; position: relative; }
+.food-moment { min-height: 560px; position: relative; }
 .food-moment img, .food-moment .demo-placeholder { height: 100%; inset: 0; object-fit: cover; position: absolute; width: 100%; z-index: 0; }
 .food-moment::after { background: linear-gradient(90deg, rgba(23,23,20,0.78), rgba(23,23,20,0.22) 65%); content: ""; inset: 0; position: absolute; z-index: 1; }
 .food-moment-copy { color: white; padding: 70px clamp(24px, 6vw, 88px); position: relative; z-index: 2; max-width: 480px; text-shadow: 0 2px 18px rgba(0,0,0,0.35); }
@@ -224,10 +224,17 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 
 /* ORDER */
 .order-section { align-items: center; display: grid; gap: 60px; grid-template-columns: 1fr 1fr; }
+.order-visual { position: relative; }
 .order-visual img, .order-visual .demo-placeholder { aspect-ratio: 1/1; border-radius: 4px; object-fit: cover; width: 100%; }
 .order-copy h2 { font-size: clamp(34px, 4vw, 48px); margin-bottom: 16px; }
 .order-copy p { color: var(--gray); font-size: 16px; line-height: 1.55; margin: 0 0 24px; max-width: 420px; }
 .order-fineprint { color: var(--gray); font-size: 12px; margin: 18px 0 0 !important; }
+
+/* STOCK PHOTO TAG — marks licensed stock photography standing in for a weak/missing
+   real photo, so it's never mistaken for Famous Pizza's own food. */
+.stock-tag.stock-tag { background: rgba(23,23,20,0.85); border-radius: 999px; bottom: 12px; color: white; font-size: 10px; font-weight: 700; left: 12px; letter-spacing: 0.06em; padding: 5px 11px; position: absolute; text-transform: uppercase; z-index: 3; }
+.pizza-strip-item .stock-tag.stock-tag { bottom: auto; top: 12px; }
+.highlight-card-photo { position: relative; }
 
 /* VISIT */
 .visit { display: grid; grid-template-columns: 1fr 1fr; max-width: none; padding: 0; }
