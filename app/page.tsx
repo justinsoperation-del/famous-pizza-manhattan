@@ -151,7 +151,17 @@ export default function Home() {
                     <p>{item.description}</p>
                   </div>
                   <div className="highlight-card-footer">
-                    <strong>{item.price ?? "See current price"}</strong>
+                    <strong>
+  {item.slicePrice || item.mediumPrice || item.largePrice
+    ? [
+        item.slicePrice && `Slice ${item.slicePrice}`,
+        item.mediumPrice && `14" ${item.mediumPrice}`,
+        item.largePrice && `18" ${item.largePrice}`,
+      ]
+        .filter(Boolean)
+        .join(" · ")
+    : item.price ?? "See current price"}
+</strong>
                     <span className="order-arrow">Order on Slice</span>
                   </div>
                 </div>
@@ -191,7 +201,17 @@ export default function Home() {
                           {item.badge && <span className="menu-badge">{item.badge}</span>}
                         </span>
                         <span className="menu-row-dots" aria-hidden="true" />
-                        <span className="menu-row-price">{item.price ?? "See price"}</span>
+                        <span className="menu-row-price">
+  {item.slicePrice || item.mediumPrice || item.largePrice
+    ? [
+        item.slicePrice && `Slice ${item.slicePrice}`,
+        item.mediumPrice && `14" ${item.mediumPrice}`,
+        item.largePrice && `18" ${item.largePrice}`,
+      ]
+        .filter(Boolean)
+        .join(" · ")
+    : item.price ?? "See price"}
+</span>
                       </a>
                     </li>
                   ))}
