@@ -29,13 +29,13 @@ export default function Home() {
             <p className="hero-lede">Whole pies, slices, pickup &amp; delivery in Manhattan.</p>
             <div className="hero-actions">
               <TrackedLink
-                className="button button-primary"
-                href={business.orderUrl}
-                event="order_online_click"
-                payload={{ source: "hero" }}
-              >
-                Order online
-              </TrackedLink>
+  className="button button-primary"
+  href={business.orderUrl}
+  event="order_online_click"
+  payload={{ source: "hero" }}
+>
+  Order online
+</TrackedLink>
               <a className="button button-secondary" href="#menu">
                 View menu
               </a>
@@ -162,7 +162,7 @@ export default function Home() {
         .join(" · ")
     : item.price ?? "See current price"}
 </strong>
-                    <span className="order-arrow">Order on Slice</span>
+                    <span className="order-arrow">Order online</span>
                   </div>
                 </div>
               </a>
@@ -220,9 +220,9 @@ export default function Home() {
             ))}
           </div>
           <p className="menu-footnote">
-            Prices reflect the most recent verified snapshot from Slice and may change.
-            Full customization, cart, and checkout happen on Slice.
-          </p>
+  Prices shown are current website prices provided by Famous Pizza. Online ordering
+  prices may differ on third-party ordering platforms.
+</p>
         </section>
 
         {/* CINEMATIC MOMENT */}
@@ -258,10 +258,10 @@ export default function Home() {
           </div>
           <div className="order-copy">
             <h2>Pickup or delivery</h2>
-            <p>
-              Browse the current menu and complete your order through Famous
-              Pizza&rsquo;s existing ordering provider.
-            </p>
+<p>
+  Browse the Famous Pizza menu, call the restaurant, or use the available
+  online ordering option for pickup or delivery.
+</p>
             <TrackedLink
               className="button button-primary"
               href={business.orderUrl}
@@ -271,9 +271,9 @@ export default function Home() {
               Order online
             </TrackedLink>
             <p className="order-fineprint">
-              Online checkout and payment are handled by the restaurant&rsquo;s ordering
-              provider, Slice.
-            </p>
+  Prices shown are current website prices provided by Famous Pizza. Call for
+  current availability and pickup orders.
+</p>
           </div>
         </section>
 
@@ -331,10 +331,10 @@ export default function Home() {
         <section className="section about" id="about">
           <h2>Famous Pizza on East 28th Street</h2>
           <p>
-            A Manhattan neighborhood pizza shop serving New York slices, whole pies, and
-            quick favorites. Order online for pickup or delivery, or stop in on East 28th
-            Street.
-          </p>
+  A Manhattan neighborhood pizza shop serving New York slices, whole pies,
+  specialty pizzas, and quick favorites. Browse the menu, order for pickup or
+  delivery, or stop in on East 28th Street.
+</p>
         </section>
       </main>
 
