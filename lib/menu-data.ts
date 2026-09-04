@@ -32,11 +32,10 @@ export const menuItems: MenuItem[] = [
     description: "Classic tomato sauce and melted cheese.",
     price: "$19.99",
     image:
-      "https://slice-menu-assets-prod.imgix.net/11868/1611020011_ab9bbe0970?fit=crop&h=900&w=900",
+      "https://slice-menu-assets-prod.imgix.net/11868/1611020011_ab9bbe0970?fit=crop&h=900&w=900&sat=8&con=6&sharp=15",
     imageAlt: "Whole cheese pizza with melted mozzarella from Famous Pizza",
     featured: true,
     orderUrl: ORDER_URL,
-    badge: "House favorite",
   },
   {
     id: "pepperoni-pizza",
@@ -49,7 +48,6 @@ export const menuItems: MenuItem[] = [
     imageAlt: "Pepperoni pizza from Famous Pizza",
     featured: true,
     orderUrl: ORDER_URL,
-    badge: "Best seller",
   },
   {
     id: "hawaiian-pizza",
@@ -57,10 +55,9 @@ export const menuItems: MenuItem[] = [
     category: "Specialty Pizza",
     description: "Tomato sauce, cheese, pineapple, and bacon.",
     price: "$23.99",
-    image:
-      "https://slice-menu-assets-prod.imgix.net/11868/1611020039_89fb1260b0?fit=crop&h=900&w=900",
-    imageAlt: "Hawaiian pizza with pineapple and bacon from Famous Pizza",
-    featured: true,
+    image: null, // real photo flagged as too weak/unappetizing for display — kept text-only in the Menu until a stronger photo is available
+    imageAlt: "Hawaiian pizza — photo pending",
+    featured: false,
     orderUrl: ORDER_URL,
   },
   {
@@ -69,12 +66,10 @@ export const menuItems: MenuItem[] = [
     category: "Appetizers",
     description: "Baked knots with garlic, butter, parsley, and sauce.",
     price: "$4.25",
-    image:
-      "https://slice-menu-assets-prod.imgix.net/11868/1611020042_11b9bf96f4?fit=crop&h=900&w=900",
-    imageAlt: "Baked garlic knots from Famous Pizza",
-    featured: true,
+    image: null, // real photo flagged as too weak for display — kept text-only in the Menu until a stronger photo is available
+    imageAlt: "Garlic knots — photo pending",
+    featured: false,
     orderUrl: ORDER_URL,
-    badge: "Perfect side",
   },
   {
     id: "extra-cheese-pizza",
@@ -83,7 +78,7 @@ export const menuItems: MenuItem[] = [
     description: "Our classic pie with an extra layer of cheese.",
     price: "$23.99",
     image:
-      "https://slice-menu-assets-prod.imgix.net/11868/1611020036_ab9bbe0970?fit=crop&h=900&w=900",
+      "https://slice-menu-assets-prod.imgix.net/11868/1611020036_ab9bbe0970?fit=crop&h=900&w=900&sat=8&con=6&sharp=15",
     imageAlt: "Extra cheese pizza from Famous Pizza",
     featured: true,
     orderUrl: ORDER_URL,
@@ -94,9 +89,9 @@ export const menuItems: MenuItem[] = [
     category: "Specialty Pizza",
     description: "See Slice for current description.",
     price: "$23.99",
-    image: null,
+    image: null, // no usable photo — branded placeholder if ever shown, text-only in the Menu for now
     imageAlt: "Ricotta cheese pizza — photo pending",
-    featured: true,
+    featured: false,
     orderUrl: ORDER_URL,
   },
   {
@@ -223,14 +218,16 @@ export const menuItems: MenuItem[] = [
 ];
 
 /**
- * Dedicated hero crop — same verified, owner's real cheese-pizza photo used for the
- * Cheese Pizza menu item above, requested from the CDN at a wider aspect ratio so the
- * whole pie reads clearly in the hero instead of being tightly cropped by a square
- * source image forced into a tall frame. Not a different/new photo — same asset id.
+ * Dedicated hero crop — the restaurant's own verified Slice photography (Pepperoni),
+ * requested from the CDN at a wider aspect ratio so the whole pie reads clearly
+ * instead of being tightly cropped by a square source image forced into a tall
+ * frame. Clean crop only — no saturation/contrast boost, so the food reads natural.
+ * Chosen over the Cheese photo because its color/topping contrast holds up better
+ * at hero size. Real, verified restaurant photography — no stock imagery.
  */
 export const heroImage = {
-  src: "https://slice-menu-assets-prod.imgix.net/11868/1611020011_ab9bbe0970?fit=crop&w=1400&h=1050&crop=entropy",
-  alt: "Whole cheese pizza with melted mozzarella from Famous Pizza",
+  src: "https://slice-menu-assets-prod.imgix.net/11868/1611020027_0d62f30af6?fit=crop&w=1400&h=1050&crop=entropy",
+  alt: "Pepperoni pizza with melted cheese from Famous Pizza",
   width: 1400,
   height: 1050,
 };

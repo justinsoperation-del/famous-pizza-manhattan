@@ -1,5 +1,5 @@
 import { business, hours, services, siteStatus } from "@/lib/site-config";
-import { getFeaturedItems, getItemsByCategory, heroImage } from "@/lib/menu-data";
+import { getFeaturedItems, getItemsByCategory, heroImage, menuItems } from "@/lib/menu-data";
 import { DemoPlaceholder } from "@/components/DemoPlaceholder";
 import { SiteHeader } from "@/components/SiteHeader";
 import { MobileActionBar } from "@/components/MobileActionBar";
@@ -26,6 +26,7 @@ export default function Home() {
           <div className="hero-copy">
             <h1>Famous Pizza</h1>
             <p className="hero-subline">East 28th Street, Manhattan</p>
+            <p className="hero-lede">New York slices, whole pies, pickup and delivery.</p>
             <div className="hero-actions">
               <TrackedLink
                 className="button button-primary"
@@ -85,7 +86,7 @@ export default function Home() {
               event="hours_click"
               payload={{ source: "info_strip", confirmed: hours.hoursConfirmed }}
             >
-              {hours.hoursConfirmed ? "See hours" : "See today's live hours"}
+              {hours.hoursConfirmed ? "See hours" : hours.pendingLabel}
             </TrackedLink>
           </div>
           {(services.takeout || services.delivery) && (
@@ -103,19 +104,24 @@ export default function Home() {
         {/* PIZZA STRIP — visual category entrances */}
         <section className="pizza-strip" aria-label="Menu categories">
           {[
-            { label: "Cheese", href: "#menu", image: featured.find((i) => i.id === "cheese-pizza")?.image },
-            { label: "Pepperoni", href: "#menu", image: featured.find((i) => i.id === "pepperoni-pizza")?.image },
-            { label: "Specialty", href: "#menu", image: featured.find((i) => i.id === "hawaiian-pizza")?.image },
-          ].map((cat) => (
-            <a key={cat.label} href={cat.href} className="pizza-strip-item">
-              {cat.image ? (
-                <img src={cat.image} alt={`${cat.label} pizza`} loading="lazy" width={480} height={480} />
-              ) : (
-                <DemoPlaceholder label={cat.label} variant="square" />
-              )}
-              <span>{cat.label}</span>
-            </a>
-          ))}
+            { label: "Cheese", href: "#menu", id: "extra-cheese-pizza" },
+            { label: "Pepperoni", href: "#menu", id: "pepperoni-pizza" },
+            { label: "Specialty", href: "#menu", id: "hawaiian-pizza" },
+          ].map((cat) => {
+            const item = menuItems.find((i) => i.id === cat.id);
+            return (
+              <a key={cat.label} href={cat.href} className="pizza-strip-item">
+                {item?.image ? (
+                  <>
+                    <img src={item.image} alt={`${cat.label} pizza`} loading="lazy" width={480} height={480} />
+                    <span>{cat.label}</span>
+                  </>
+                ) : (
+                  <DemoPlaceholder label={cat.label} variant="square" />
+                )}
+              </a>
+            );
+          })}
         </section>
 
         {/* MENU HIGHLIGHTS */}
@@ -251,7 +257,7 @@ export default function Home() {
                 <span>Hours</span>
                 <strong>
                   <TrackedLink href={hours.liveHoursUrl} event="hours_click" payload={{ source: "visit" }}>
-                    {hours.hoursConfirmed ? "See hours" : "Hours to be confirmed — see live hours"}
+                    {hours.hoursConfirmed ? "See hours" : hours.pendingLabel}
                   </TrackedLink>
                 </strong>
               </div>
@@ -290,35 +296,13 @@ export default function Home() {
           </div>
         </section>
 
-        {/* PHOTO GRID */}
-        <section className="photo-grid" aria-label="Photo gallery">
-          {[
-            { id: "cheese-pizza", size: "lg" },
-            { id: "pepperoni-pizza", size: "sm" },
-            { id: "hawaiian-pizza", size: "sm" },
-            { id: "garlic-knots", size: "md" },
-            { id: "extra-cheese-pizza", size: "md" },
-          ].map((slot) => {
-            const item = featured.find((f) => f.id === slot.id);
-            return (
-              <div className={`photo-grid-item photo-grid-item--${slot.size}`} key={slot.id}>
-                {item?.image ? (
-                  <img src={item.image} alt={item.imageAlt} loading="lazy" />
-                ) : (
-                  <DemoPlaceholder label={item?.name ?? slot.id} variant="square" />
-                )}
-              </div>
-            );
-          })}
-        </section>
-
         {/* ABOUT */}
         <section className="section about" id="about">
-          <p className="hero-eyebrow">Famous Pizza</p>
-          <h2>East 28th Street</h2>
+          <h2>Famous Pizza on East 28th Street</h2>
           <p>
-            A neighborhood pizza shop serving New York slices, whole pies and quick
-            favorites in Manhattan.
+            A Manhattan neighborhood pizza shop serving New York slices, whole pies, and
+            quick favorites. Order online for pickup or delivery, or stop in on East 28th
+            Street.
           </p>
         </section>
       </main>
