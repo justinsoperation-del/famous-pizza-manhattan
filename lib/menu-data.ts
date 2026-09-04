@@ -37,9 +37,16 @@ export const menuItems: MenuItem[] = [
     category: "Pizza",
     description: "Classic tomato sauce and melted cheese.",
     price: "$19.99",
+    // STOCK PHOTO — the real Slice photo for this item looked weak/low-resolution
+    // at display size. Licensed stock photography that clearly matches the dish
+    // (a plain cheese slice), not Famous Pizza's own food. Free to use under the
+    // Unsplash License (unsplash.com/license). Photo by Liam Nguyen:
+    // unsplash.com/photos/person-holding-sliced-pizza-with-cheese-0pwaiR0whA8
+    // Replace with owner-approved photography before public launch.
     image:
-      "https://slice-menu-assets-prod.imgix.net/11868/1611020011_ab9bbe0970?fit=crop&h=900&w=900&sat=8&con=6&sharp=15",
-    imageAlt: "Whole cheese pizza with melted mozzarella from Famous Pizza",
+      "https://images.unsplash.com/photo-1616141215340-34b0e7c661c8?fit=crop&w=900&h=900&q=80&auto=format",
+    imageAlt: "Cheese pizza slice (stock photo)",
+    isStockPhoto: true,
     featured: true,
     orderUrl: ORDER_URL,
   },
@@ -49,9 +56,16 @@ export const menuItems: MenuItem[] = [
     category: "Pizza",
     description: "Classic cheese pizza topped with pepperoni.",
     price: "$23.99",
+    // STOCK PHOTO — the real Slice photo for this item looked weak/low-resolution
+    // at display size. Licensed stock photography that clearly matches the dish,
+    // not Famous Pizza's own food. Free to use under the Unsplash License
+    // (unsplash.com/license). Photo by amirali mirhashemian:
+    // unsplash.com/photos/pepperoni-pizza-on-a-wooden-tray-w1iMfs6yxuo
+    // Replace with owner-approved photography before public launch.
     image:
-      "https://slice-menu-assets-prod.imgix.net/11868/1611020027_0d62f30af6?fit=crop&h=900&w=900",
-    imageAlt: "Pepperoni pizza from Famous Pizza",
+      "https://images.unsplash.com/photo-1564128442383-9201fcc740eb?fit=crop&w=900&h=900&q=80&auto=format",
+    imageAlt: "Pepperoni pizza on a wooden tray (stock photo)",
+    isStockPhoto: true,
     featured: true,
     orderUrl: ORDER_URL,
   },
@@ -90,6 +104,11 @@ export const menuItems: MenuItem[] = [
     category: "Pizza",
     description: "Our classic pie with an extra layer of cheese.",
     price: "$23.99",
+    // Kept as the restaurant's real Slice photo (enhanced: sat/con/sharp) rather than
+    // swapped for stock — "extra cheese" has no distinct visual identity from a
+    // regular cheese pizza, and no stock photo could be confidently confirmed to
+    // depict this specific dish without ambiguity, per the "don't use a stock photo
+    // that doesn't clearly match" rule.
     image:
       "https://slice-menu-assets-prod.imgix.net/11868/1611020036_ab9bbe0970?fit=crop&h=900&w=900&sat=8&con=6&sharp=15",
     imageAlt: "Extra cheese pizza from Famous Pizza",
@@ -231,18 +250,20 @@ export const menuItems: MenuItem[] = [
 ];
 
 /**
- * Dedicated hero crop — the restaurant's own verified Slice photography (Pepperoni),
- * requested from the CDN at a wider aspect ratio so the whole pie reads clearly
- * instead of being tightly cropped by a square source image forced into a tall
- * frame. Clean crop only — no saturation/contrast boost, so the food reads natural.
- * Chosen over the Cheese photo because its color/topping contrast holds up better
- * at hero size. Real, verified restaurant photography — no stock imagery.
+ * Hero photo — STOCK PHOTO, not Famous Pizza's own food. Chosen as the single
+ * strongest, most appetizing image on the site: close, warm-lit pepperoni pizza
+ * with melted cheese and a browned crust. Distinct from the Pepperoni Pizza card's
+ * photo below to avoid repeating the same image in two places on the page. Free to
+ * use under the Unsplash License (unsplash.com/license). Photo by Jonas Kakaroto:
+ * unsplash.com/photos/pepperoni-pizza-BHdZZQWrcwM
+ * Replace with owner-approved photography before public launch.
  */
 export const heroImage = {
-  src: "https://slice-menu-assets-prod.imgix.net/11868/1611020027_0d62f30af6?fit=crop&w=1400&h=1050&crop=entropy",
-  alt: "Pepperoni pizza with melted cheese from Famous Pizza",
+  src: "https://images.unsplash.com/photo-1576458087875-4d52fc51e013?fit=crop&w=1400&h=1050&q=80&auto=format",
+  alt: "Close-up of pepperoni pizza with melted cheese (stock photo)",
   width: 1400,
   height: 1050,
+  isStock: true,
 };
 
 export const categoryOrder = [

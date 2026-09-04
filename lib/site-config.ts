@@ -102,4 +102,6 @@ export const openOwnerDecisions = [
   "Decide whether/when to replace the Google Business Profile website field with the new branded domain.",
   "Supply owner-approved photography for every item currently marked DEMO IMAGE.",
   "Confirm which menu categories/items are current — Slice may have changed items or prices since this snapshot.",
+  "Confirm which drinks/beverages are actually sold before launch — none are currently listed on the site since no verified beverage lineup/prices were available; do not assume the Slice listing's beverage section is current.",
+  "Approve or replace the stock/demo food photography (hero + Cheese, Pepperoni, Hawaiian Pizza cards) with real, owner-approved photography before public launch.",
 ];

@@ -188,11 +188,9 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 .section { margin: 0 auto; max-width: 1400px; padding: 76px clamp(24px, 6vw, 88px); }
 .highlights h2, .menu-intro h2, .about h2 { font-size: clamp(36px, 4.5vw, 56px); margin-bottom: 36px; }
 
-.highlights-grid { display: grid; gap: 18px; grid-template-columns: repeat(3, 1fr); }
+.highlights-grid { display: grid; gap: 18px; grid-template-columns: repeat(4, 1fr); }
 .highlight-card { background: var(--cream); border-radius: 4px; display: block; overflow: hidden; }
-.highlight-card--wide { grid-column: span 2; }
-.highlight-card img, .highlight-card .demo-placeholder { aspect-ratio: 1.15 / 1; object-fit: cover; width: 100%; }
-.highlight-card--wide img, .highlight-card--wide .demo-placeholder { aspect-ratio: 1.6 / 1; }
+.highlight-card img, .highlight-card .demo-placeholder { aspect-ratio: 1 / 1; object-fit: cover; width: 100%; }
 .highlight-card-copy { display: flex; flex-direction: column; gap: 14px; padding: 20px; }
 .highlight-card-copy h3 { font-family: var(--font-body); font-size: 19px; font-weight: 700; margin: 0 0 4px; }
 .highlight-card-copy p { color: var(--gray); font-size: 14px; margin: 0; }
@@ -232,8 +230,10 @@ h1, h2, h3 { font-family: var(--font-display); font-weight: 400; letter-spacing:
 
 /* STOCK PHOTO TAG — marks licensed stock photography standing in for a weak/missing
    real photo, so it's never mistaken for Famous Pizza's own food. */
-.stock-tag.stock-tag { background: rgba(23,23,20,0.85); border-radius: 999px; bottom: 12px; color: white; font-size: 10px; font-weight: 700; left: 12px; letter-spacing: 0.06em; padding: 5px 11px; position: absolute; text-transform: uppercase; z-index: 3; }
-.pizza-strip-item .stock-tag.stock-tag { bottom: auto; top: 12px; }
+/* Small, low-key disclosure for stock/demo photography — deliberately subtle for
+   this private owner-review demo, not a loud customer-facing badge. */
+.stock-tag.stock-tag { background: rgba(23,23,20,0.55); border-radius: 4px; bottom: 8px; color: rgba(255,255,255,0.9); font-size: 9px; font-weight: 600; left: 8px; letter-spacing: 0.02em; padding: 2px 6px; position: absolute; text-transform: none; z-index: 3; }
+.pizza-strip-item .stock-tag.stock-tag { bottom: auto; top: 8px; right: auto; width: auto; }
 .highlight-card-photo { position: relative; }
 
 /* VISIT */
@@ -295,7 +295,6 @@ footer { background: var(--ink); color: white; }
   .hero { grid-template-columns: 1fr; }
   .hero-visual { min-height: 380px; }
   .highlights-grid { grid-template-columns: repeat(2, 1fr); }
-  .highlight-card--wide { grid-column: span 2; }
   .menu-categories { grid-template-columns: 1fr; }
   .order-section { grid-template-columns: 1fr; }
   .visit { grid-template-columns: 1fr; }
@@ -309,7 +308,6 @@ footer { background: var(--ink); color: white; }
   .section { padding: 64px 20px; }
   .menu-section { padding: 64px 20px; }
   .highlights-grid { grid-template-columns: 1fr; }
-  .highlight-card--wide { grid-column: span 1; }
   .pizza-strip { grid-template-columns: repeat(2, 1fr); }
   .pizza-strip-item:last-child { grid-column: span 2; aspect-ratio: 2/1; }
   .footer-inner { grid-template-columns: 1fr 1fr; padding-bottom: 130px; }

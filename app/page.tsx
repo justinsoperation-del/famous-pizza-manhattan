@@ -25,8 +25,8 @@ export default function Home() {
         <section className="hero">
           <div className="hero-copy">
             <h1>Famous Pizza</h1>
-            <p className="hero-subline">East 28th Street, Manhattan</p>
-            <p className="hero-lede">New York slices, whole pies, pickup and delivery.</p>
+            <p className="hero-subline">New York Slices on East 28th Street</p>
+            <p className="hero-lede">Whole pies, slices, pickup &amp; delivery in Manhattan.</p>
             <div className="hero-actions">
               <TrackedLink
                 className="button button-primary"
@@ -64,6 +64,7 @@ export default function Home() {
               width={heroImage.width}
               height={heroImage.height}
             />
+            {heroImage.isStock && <span className="stock-tag">Stock photo</span>}
           </div>
         </section>
 
@@ -106,14 +107,14 @@ export default function Home() {
           {[
             { label: "Cheese", href: "#menu", id: "extra-cheese-pizza" },
             { label: "Pepperoni", href: "#menu", id: "pepperoni-pizza" },
-            { label: "Specialty", href: "#menu", id: "hawaiian-pizza" },
+            { label: "Hawaiian Pizza", href: "#menu", id: "hawaiian-pizza" },
           ].map((cat) => {
             const item = menuItems.find((i) => i.id === cat.id);
             return (
               <a key={cat.label} href={cat.href} className="pizza-strip-item">
                 {item?.image ? (
                   <>
-                    <img src={item.image} alt={`${cat.label} pizza`} loading="lazy" width={480} height={480} />
+                    <img src={item.image} alt={item.imageAlt} loading="lazy" width={480} height={480} />
                     {item.isStockPhoto && <span className="stock-tag">Stock photo</span>}
                     <span>{cat.label}</span>
                   </>
@@ -129,11 +130,11 @@ export default function Home() {
         <section className="section highlights" id="favorites">
           <h2>What are you having?</h2>
           <div className="highlights-grid">
-            {featured.map((item, i) => (
+            {featured.map((item) => (
               <a
                 key={item.id}
                 href={item.orderUrl}
-                className={`highlight-card ${i === 0 ? "highlight-card--wide" : ""}`}
+                className="highlight-card"
                 data-menu-item={item.id}
               >
                 {item.image ? (
