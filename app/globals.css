@@ -409,11 +409,39 @@ footer { background: var(--ink); color: white; }
   margin: 8px 0 24px;
 }
 
+.full-menu-section {
+  background: var(--cream);
+  padding: 72px 24px;
+}
+
+.full-menu-inner {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.full-menu-inner h2 {
+  font-size: clamp(36px, 4.5vw, 56px);
+  margin: 0 0 24px;
+}
+
 .full-menu-image {
   display: block;
   width: 100%;
-  max-width: 960px;
   height: auto;
-  margin: 24px auto 0;
-  border-radius: 14px;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+.full-menu-image-bottom {
+  margin-top: 16px;
+}
+
+@media (max-width: 680px) {
+  .full-menu-section {
+    padding: 56px 20px;
+  }
+
+  .full-menu-image-bottom {
+    margin-top: 10px;
+  }
 }
