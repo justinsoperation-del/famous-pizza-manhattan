@@ -239,22 +239,23 @@ export default function Home() {
         </section>
 {/* OWNER MENU FLYER */}
 <section className="full-menu-section">
-  <p className="hero-eyebrow">Full menu</p>
-  <h2>See our full menu</h2>
+  <div className="full-menu-inner">
+    <p className="hero-eyebrow">Full menu</p>
+    <h2>See our full menu</h2>
 
-  <img
-    src="/images/owner/menu-flyer.jpg"
-    alt="Famous Pizza full menu"
-    className="full-menu-image"
-  />
-</section>
+    <img
+      src="/images/owner/menu-flyer.jpg"
+      alt="Famous Pizza pizza menu"
+      className="full-menu-image"
+      loading="lazy"
+    />
 
-<img
-  src="/images/owner/menu-flyer-bottom.jpg"
-  alt="Famous Pizza sides and special deals menu"
-  className="menu-flyer-image"
-  loading="lazy"
-/>
+    <img
+      src="/images/owner/menu-flyer-bottom.jpg"
+      alt="Famous Pizza sides and special deals menu"
+      className="full-menu-image full-menu-image-bottom"
+      loading="lazy"
+    />
   </div>
 </section>
         {/* CINEMATIC MOMENT */}
