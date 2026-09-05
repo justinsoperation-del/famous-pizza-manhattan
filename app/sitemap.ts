@@ -1,7 +1,6 @@
 import type { MetadataRoute } from "next";
 
-// PENDING — swap for the final branded production domain before public launch.
-const SITE_URL = "https://famous-pizza-manhattan.example.com";
+const SITE_URL = "https://famous-pizza-manhattan.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
