@@ -289,7 +289,7 @@ export const menuItems: MenuItem[] = [
     slicePrice: "$3.99",
     mediumPrice: "$22.99",
     largePrice: "$24.99",
-    image: null,
+    image: "/images/owner/ricotta-pepperoni-pizza.jpg",
     imageAlt: "Ricotta and pepperoni pizza",
     featured: false,
   },
