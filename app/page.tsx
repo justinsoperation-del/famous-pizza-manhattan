@@ -244,11 +244,18 @@ export default function Home() {
     <h2>See our full menu</h2>
 
     <img
-      src="/images/owner/menu-flyer.jpg"
-      alt="Famous Pizza full menu"
-      className="menu-flyer-image"
-      loading="lazy"
-    />
+  src="/images/owner/menu-flyer-top.jpg"
+  alt="Famous Pizza pizza menu"
+  className="menu-flyer-image"
+  loading="lazy"
+/>
+
+<img
+  src="/images/owner/menu-flyer-bottom.jpg"
+  alt="Famous Pizza sides and special deals menu"
+  className="menu-flyer-image"
+  loading="lazy"
+/>
   </div>
 </section>
         {/* CINEMATIC MOMENT */}
