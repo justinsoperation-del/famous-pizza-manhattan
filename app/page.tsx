@@ -195,24 +195,37 @@ export default function Home() {
                 <ul>
                   {group.items.map((item) => (
                     <li key={item.id}>
-                      <a href={getOrderUrl(item)} className="menu-row">
-                        <span className="menu-row-name">
-                          {item.name}
-                          {item.badge && <span className="menu-badge">{item.badge}</span>}
-                        </span>
-                        <span className="menu-row-dots" aria-hidden="true" />
-                        <span className="menu-row-price">
-  {item.slicePrice || item.mediumPrice || item.largePrice
-    ? [
-        item.slicePrice && `Slice ${item.slicePrice}`,
-        item.mediumPrice && `14" ${item.mediumPrice}`,
-        item.largePrice && `18" ${item.largePrice}`,
-      ]
-        .filter(Boolean)
-        .join(" · ")
-    : item.price ?? "See price"}
-</span>
-                      </a>
+                     <a href={getOrderUrl(item)} className="menu-row menu-row-with-photo">
+  {item.image && (
+    <img
+      src={item.image}
+      alt={item.imageAlt}
+      className="menu-row-photo"
+      loading="lazy"
+      width={72}
+      height={72}
+    />
+  )}
+
+  <span className="menu-row-name">
+    {item.name}
+    {item.badge && <span className="menu-badge">{item.badge}</span>}
+  </span>
+
+  <span className="menu-row-dots" aria-hidden="true" />
+
+  <span className="menu-row-price">
+    {item.slicePrice || item.mediumPrice || item.largePrice
+      ? [
+          item.slicePrice && `Slice ${item.slicePrice}`,
+          item.mediumPrice && `14" ${item.mediumPrice}`,
+          item.largePrice && `18" ${item.largePrice}`,
+        ]
+          .filter(Boolean)
+          .join(" · ")
+      : item.price ?? "See price"}
+  </span>
+</a>
                     </li>
                   ))}
                 </ul>
