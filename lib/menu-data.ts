@@ -139,7 +139,7 @@ export const menuItems: MenuItem[] = [
     slicePrice: "$3.50",
     mediumPrice: "$18.99",
     largePrice: "$22.99",
-    image: "/images/owner/fresh-pepper-onion-pizza.jpg",
+    image: null,
     imageAlt: "Fresh pepper and onion pizza",
     featured: false,
   },
