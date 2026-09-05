@@ -9,8 +9,8 @@
  */
 
 export const siteStatus = {
-  /** This build is a private owner-review demo, not the public production site. */
-  isPrivateDemo: true,
+  /** Public production site approved by the owner. */
+  isPrivateDemo: false,
 } as const;
 
 export const business = {
