@@ -11,12 +11,7 @@ const categories = getItemsByCategory();
 export default function Home() {
   return (
     <>
-      {siteStatus.isPrivateDemo && (
-        <div className="demo-banner" role="note">
-          Private owner-review demo — not the live public site. Images marked
-          &ldquo;Demo image&rdquo; are placeholders pending owner-approved photography.
-        </div>
-      )}
+     
 
       <SiteHeader />
 
@@ -400,12 +395,7 @@ export default function Home() {
         </div>
         <div className="footer-bottom">
           <p>© {new Date().getFullYear()} Famous Pizza. All rights reserved.</p>
-          {siteStatus.isPrivateDemo && (
-            <p className="footer-demo-note">
-              Private demonstration prepared for Famous Pizza. Not yet the restaurant&rsquo;s
-              official public website.
-            </p>
-          )}
+          
         </div>
       </footer>
 
