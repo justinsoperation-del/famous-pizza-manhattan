@@ -476,7 +476,7 @@ export const menuItems: MenuItem[] = [
     category: "Sides",
     description: "Beef patty with cheese and pepperoni.",
     price: "$5.75",
-    image: "/images/owner/beef-patties.jpg",
+    image: "/images/owner/beef-patty-cheese-pepperoni.jpg",
     imageAlt: "Beef patty with cheese and pepperoni",
     featured: false,
     sliceProductId: "3144817",
