@@ -395,3 +395,23 @@ footer { background: var(--ink); color: white; }
     grid-column: 2;
   }
 }
+.menu-flyer-section {
+  padding: 80px 24px;
+  background: #f7f2e8;
+}
+
+.menu-flyer-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.menu-flyer-inner h2 {
+  margin: 8px 0 24px;
+}
+
+.menu-flyer-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
