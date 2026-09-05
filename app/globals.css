@@ -374,3 +374,24 @@ footer { background: var(--ink); color: white; }
     grid-column: 2;
   }
 }
+.menu-row-with-photo .menu-row-name {
+  grid-column: 2;
+}
+
+.menu-row-with-photo .menu-row-dots {
+  grid-column: 3;
+}
+
+.menu-row-with-photo .menu-row-price {
+  grid-column: 4;
+}
+
+@media (max-width: 700px) {
+  .menu-row-with-photo .menu-row-name {
+    grid-column: 2;
+  }
+
+  .menu-row-with-photo .menu-row-price {
+    grid-column: 2;
+  }
+}
