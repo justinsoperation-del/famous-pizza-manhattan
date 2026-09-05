@@ -237,7 +237,20 @@ export default function Home() {
   prices may differ on third-party ordering platforms.
 </p>
         </section>
+{/* OWNER MENU FLYER */}
+<section className="menu-flyer-section">
+  <div className="menu-flyer-inner">
+    <p className="hero-eyebrow">FULL MENU</p>
+    <h2>See our full menu</h2>
 
+    <img
+      src="/images/owner/menu-flyer.jpg"
+      alt="Famous Pizza full menu"
+      className="menu-flyer-image"
+      loading="lazy"
+    />
+  </div>
+</section>
         {/* CINEMATIC MOMENT */}
         <section className="food-moment">
           {featured[1]?.image ? (
