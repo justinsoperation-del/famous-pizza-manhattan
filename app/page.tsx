@@ -1,5 +1,4 @@
-import { business, hours, services, siteStatus } from "@/lib/site-config";
-import { getFeaturedItems, getItemsByCategory, getOrderUrl, heroImage, menuItems } from "@/lib/menu-data";
+import { business, hours, services } from "@/lib/site-config";import { getFeaturedItems, getItemsByCategory, getOrderUrl, heroImage, menuItems } from "@/lib/menu-data";
 import { DemoPlaceholder } from "@/components/DemoPlaceholder";
 import { SiteHeader } from "@/components/SiteHeader";
 import { MobileActionBar } from "@/components/MobileActionBar";
