@@ -387,7 +387,7 @@ export const menuItems: MenuItem[] = [
     slicePrice: "$3.99",
     mediumPrice: null,
     largePrice: null,
-    image: null,
+    image: "/images/owner/pineapple-pepperoni-pizza.jpg",
     imageAlt: "Pineapple and pepperoni pizza",
     featured: false,
   },
