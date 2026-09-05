@@ -1,4 +1,5 @@
-import { business, hours, services } from "@/lib/site-config";import { getFeaturedItems, getItemsByCategory, getOrderUrl, heroImage, menuItems } from "@/lib/menu-data";
+import { business, hours, services } from "@/lib/site-config";
+import { getFeaturedItems, getItemsByCategory, getOrderUrl, heroImage, menuItems } from "@/lib/menu-data";
 import { DemoPlaceholder } from "@/components/DemoPlaceholder";
 import { SiteHeader } from "@/components/SiteHeader";
 import { MobileActionBar } from "@/components/MobileActionBar";
@@ -308,7 +309,7 @@ export default function Home() {
         <section className="section visit" id="visit">
           <div className="visit-card">
             <p className="hero-eyebrow">Find us on 28th</p>
-            <h2>One block from Madison Square Park.</h2>
+           <h2>Near Madison Square Park.</h2>
             <p className="address">{business.address.full}</p>
             <div className="visit-details">
               <div>
