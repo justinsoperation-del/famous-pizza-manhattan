@@ -95,6 +95,7 @@ export const menuItems: MenuItem[] = [
   image: "/images/owner/broccoli-pizza.jpg",
   imageAlt: "Broccoli pizza from Famous Pizza",
   featured: false,
+   sliceProductId: "3144596",
 },
   {
   id: "spinach-pizza",
@@ -107,6 +108,7 @@ export const menuItems: MenuItem[] = [
   image: "/images/owner/spinach-pizza.jpg",
   imageAlt: "Spinach pizza from Famous Pizza",
   featured: false,
+    sliceProductId: "3144599",
 },
   {
     id: "mushroom-pizza",
@@ -119,6 +121,7 @@ export const menuItems: MenuItem[] = [
     image: "/images/owner/mushroom-pizza.jpg",
     imageAlt: "Mushroom pizza from Famous Pizza",
     featured: false,
+    sliceProductId: "3144603",
   },
   {
     id: "pineapple-pizza",
@@ -143,6 +146,7 @@ export const menuItems: MenuItem[] = [
     image: "/images/owner/fresh-pepper-onion-pizza.jpg",
     imageAlt: "Fresh pepper and onion pizza",
     featured: false,
+    sliceProductId: "3144608",
   },
   {
     id: "sausage-pizza",
@@ -167,6 +171,7 @@ export const menuItems: MenuItem[] = [
     image: "/images/owner/black-olives-pizza.jpg",
     imageAlt: "Black olives pizza",
     featured: false,
+    sliceProductId: "3144597",
   },
   {
     id: "ricotta-pizza",
@@ -179,7 +184,7 @@ export const menuItems: MenuItem[] = [
     image: "/images/owner/ricotta-cheese-pizza.jpg",
     imageAlt: "Ricotta cheese pizza",
     featured: false,
-    sliceProductId: "3296455",
+    sliceProductId: "27330516",
   },
   {
     id: "chicken-pizza",
@@ -192,6 +197,7 @@ export const menuItems: MenuItem[] = [
     image: "/images/owner/chicken-pizza-01.jpg",
     imageAlt: "Chicken pizza from Famous Pizza",
     featured: false,
+    sliceProductId: "27330517",
   },
   {
     id: "bbq-chicken-pizza",
@@ -217,6 +223,7 @@ export const menuItems: MenuItem[] = [
     image: "/images/owner/chicken-pizza-02.jpg",
     imageAlt: "Buffalo chicken pizza from Famous Pizza",
     featured: false,
+    sliceProductId: "3144644",
   },
   {
     id: "chicken-broccoli-pizza",
@@ -268,6 +275,7 @@ export const menuItems: MenuItem[] = [
     image: "/images/owner/pepperoni-sausage-pizza.jpg",
     imageAlt: "Sausage and pepperoni pizza from Famous Pizza",
     featured: false,
+    sliceProductId: "3144666",
   },
   {
     id: "mix-vegetables-pizza",
@@ -286,13 +294,14 @@ export const menuItems: MenuItem[] = [
     id: "ricotta-pepperoni-pizza",
     name: "Ricotta & Pepperoni Pizza",
     category: "Specialty Pizza",
-    description: "Ricotta cheese and pepperoni.",
+    description: "Ricotta cheese pizza with pepperoni. On Slice, start with Ricotta Cheese Pizza and add pepperoni.",
     slicePrice: "$3.99",
     mediumPrice: "$22.99",
     largePrice: "$24.99",
     image: "/images/owner/ricotta-pepperoni-pizza.jpg",
     imageAlt: "Ricotta and pepperoni pizza",
     featured: false,
+    sliceProductId: "27330516",
   },
 
   // Additional specialty pizzas from owner's current menu
@@ -449,6 +458,7 @@ export const menuItems: MenuItem[] = [
   image: "/images/owner/brownies.jpg",
   imageAlt: "Brownies from Famous Pizza",
   featured: false,
+    sliceProductId: "27330391",
 },
   {
     id: "beef-patty",
